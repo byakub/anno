@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import {
   actions as announcementsActions,
@@ -13,6 +14,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { ...announcementsActions };
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ ...announcementsActions }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(view);
