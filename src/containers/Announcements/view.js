@@ -6,13 +6,32 @@ export default function (props) {
   const { addAnno, announcements, deleteAnno, editAnno } = props;
   console.log(announcements);
 
-  const [annoItem, setAnnoItem] = useState({ title: '', description: '' });
+  const [annoItem, setAnnoItem] = useState({
+    title: '',
+    description: '',
+  });
 
-  const submitHandler = () => {
-    // if (!annoItem.title.trim() || !annoItem.description.trim()) {
-    // 	return message('fields can not be empty')
-    // }
+  const [editAnnoItem, setEditAnnoItem] = useState({
+    title: '',
+    description: '',
+    id: null,
+  });
 
+  const [openMenu, setOpenMenu] = useState({ edit: false, add: false });
+
+  const editMenuHandler = (elem) => {
+    setEditAnnoItem({
+      title: elem.title,
+      description: elem.description,
+      id: elem.id,
+    });
+    setOpenMenu({ ...openMenu, edit: !openMenu.edit });
+  };
+  const addMenuHandler = () => {
+    setOpenMenu({ ...openMenu, add: !openMenu.add });
+  };
+
+  const submitAddAnno = () => {
     const newAnno = {
       id: shortid.generate(),
       title: annoItem.title,
@@ -27,34 +46,51 @@ export default function (props) {
       }),
     };
     setAnnoItem({ title: '', description: '' });
-    //setToOpenForm(!toOpenForm);
     addAnno(newAnno);
-    //message('New todo added!')
+    setOpenMenu({ ...openMenu, add: !openMenu.add });
+  };
+
+  const submitEditAnno = () => {
+    editAnno(editAnnoItem);
+    setEditAnnoItem({ title: '', description: '', id: null });
+    setOpenMenu({ ...openMenu, edit: !openMenu.edit });
   };
 
   const changeInputHandler = (event) => {
     setAnnoItem({ ...annoItem, [event.target.name]: event.target.value });
   };
+  const changeEditHandler = (event) => {
+    setEditAnnoItem({
+      ...editAnnoItem,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   return (
     <div>
       <h1>Hello!</h1>
-
       <h1>ADD ITEM</h1>
-      <input
-        placeholder="title"
-        name="title"
-        value={annoItem.title}
-        onChange={changeInputHandler}
-      />
-      <input
-        placeholder="description"
-        name="description"
-        value={annoItem.description}
-        onChange={changeInputHandler}
-      />
+      <button onClick={() => addMenuHandler()}>Open/Close Add Menu</button>
+      {openMenu.add ? (
+        <div>
+          <input
+            placeholder="title"
+            name="title"
+            value={annoItem.title}
+            onChange={changeInputHandler}
+          />
+          <input
+            placeholder="description"
+            name="description"
+            value={annoItem.description}
+            onChange={changeInputHandler}
+          />
 
-      <button onClick={() => submitHandler()}>add a new anno</button>
+          <button onClick={() => submitAddAnno()}>add a new anno</button>
+        </div>
+      ) : (
+        <></>
+      )}
 
       <h1>SHOW LIST</h1>
       {announcements.map((elem, index) => {
@@ -66,6 +102,27 @@ export default function (props) {
             <button onClick={() => deleteAnno(elem.id)}>
               delete {index} item
             </button>
+            <h1>Edit items</h1>
+            <button onClick={() => editMenuHandler(elem)}>
+              Open/Close Edit Menu
+            </button>
+            {openMenu.edit ? (
+              <div>
+                <input
+                  name="title"
+                  value={editAnnoItem.title}
+                  onChange={changeEditHandler}
+                />
+                <input
+                  name="description"
+                  value={editAnnoItem.description}
+                  onChange={changeEditHandler}
+                />
+                <button onClick={() => submitEditAnno()}>Save Anno</button>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         );
       })}

@@ -1,16 +1,12 @@
 import actionTypes from './actionTypes';
 
 const initialState = {
-  announcements: [
-    { title: 'title1', description: 'description1', date: 'date 1', id: 0 },
-    { title: 'title2', description: 'description2', date: 'date 2', id: 1 },
-    { title: 'title3', description: 'description3', date: 'date 3', id: 2 },
-    { title: 'title4', description: 'description4', date: 'date 4', id: 3 },
-    { title: 'title5', description: 'description5', date: 'date 5', id: 4 },
-  ],
+  announcements: [],
 };
 
 const announcementsReducer = (state = initialState, action = {}) => {
+  console.log('state', state);
+  console.log('action', action);
   let result = null;
   switch (action.type) {
     case actionTypes.ADD_ANNO: {
