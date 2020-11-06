@@ -5,8 +5,6 @@ const initialState = {
 };
 
 const announcementsReducer = (state = initialState, action = {}) => {
-  console.log('state', state);
-  console.log('action', action);
   let result = null;
   switch (action.type) {
     case actionTypes.ADD_ANNO: {

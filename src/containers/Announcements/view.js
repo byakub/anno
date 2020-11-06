@@ -4,7 +4,6 @@ const shortid = require('shortid');
 
 export default function (props) {
   const { addAnno, announcements, deleteAnno, editAnno } = props;
-  console.log(announcements);
 
   const [annoItem, setAnnoItem] = useState({
     title: '',
@@ -97,8 +96,8 @@ export default function (props) {
         return (
           <div key={index}>
             <h3>{elem.title}</h3>
-            <h4>{elem.description}</h4>
-            <h5>{elem.date}</h5>
+            <p>{elem.description}</p>
+            <p>{elem.date}</p>
             <button onClick={() => deleteAnno(elem.id)}>
               delete {index} item
             </button>
