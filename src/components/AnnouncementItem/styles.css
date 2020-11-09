@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Kufam&display=swap');
+.ant-btn-circle{
+    margin-left: 0.5rem;
+}
+.ant-card.ant-card-bordered {
+    margin: 1.5rem auto;
+    background-color: #fbec5d;
+    width: 500px;
+  }
+  
+  .ant-card-extra .ant-btn {
+    background-color: #fbec5d;
+    border: 1.5px solid black;
+  }
+
+  .ant-card-head-title{
+      text-align: start;
+      font-size: x-large;
+      font-weight: bold;
+      font-family: 'Kufam', cursive;
+  }
+  .card-description{
+      text-align: justify;
+      font-size: 0.8rem;
+      font-family: 'Kufam', cursive;
+      
+  }
+
+  .card-date{
+      text-align: end;
+      font-size: smaller;
+      margin: 0;
+  }

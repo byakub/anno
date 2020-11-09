@@ -1,69 +1,60 @@
 import React, { useState } from 'react';
-import Form from './form';
+import { AnnouncementItemAdd } from '../../components/Modal/AnnouncementItemAdd';
 
-export default function (props) {
+import { Item } from '../../components/AnnouncementItem';
+
+export const Announcements = (props) => {
   const {
-    addAnno,
-    announcements,
-    deleteAnno,
+    list,
+    handleDeleteAnno,
     handleAddAnno,
     handleEditAnno,
+    searchAnno,
+    similarAnnouncements,
   } = props;
 
-  const [editAnnoItem, setEditAnnoItem] = useState({
-    title: '',
-    description: '',
-    id: null,
-  });
-
-  const [openMenu, setOpenMenu] = useState({ edit: false, add: false });
-
-  const editMenuHandler = (elem) => {
-    setEditAnnoItem({
-      title: elem.title,
-      description: elem.description,
-      id: elem.id,
-    });
-    setOpenMenu({ ...openMenu, edit: !openMenu.edit });
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const toggleAddModal = () => {
+    setOpenAddModal(!openAddModal);
   };
-  const addMenuHandler = () => {
-    setOpenMenu({ ...openMenu, add: !openMenu.add });
-  };
-
+  console.log(props, 'props');
   return (
     <div>
-      <h1>Hello!</h1>
-      <h1>ADD ITEM</h1>
-      <button onClick={() => addMenuHandler()}>Open/Close Add Menu</button>
-      {openMenu.add ? <Form action={handleAddAnno} /> : <></>}
-
-      <h1>SHOW LIST</h1>
-      {announcements.map((elem, index) => {
+      <input
+        placeholder="Search announcements"
+        onChange={(event) => searchAnno(event.target.value)}
+      />
+      <button
+        onClick={() => {
+          toggleAddModal();
+        }}
+      >
+        Add Announcement
+      </button>
+      {openAddModal && (
+        <div>
+          <AnnouncementItemAdd
+            type="Add"
+            action={handleAddAnno}
+            closeAddModal={toggleAddModal}
+          />
+        </div>
+      )}
+      {list.map((elem, index) => {
         return (
-          <div key={index}>
-            <h3>{elem.title}</h3>
-            <p>{elem.description}</p>
-            <p>{String(elem.date)}</p>
-            <button onClick={() => deleteAnno(elem.id)}>
-              delete {index} item
-            </button>
-            <h1>Edit items</h1>
-            <button onClick={() => editMenuHandler(elem)}>
-              Open/Close Edit Menu
-            </button>
-            {openMenu.edit ? (
-              <Form
-                id={elem.id}
-                defaultValue1={elem.title}
-                defaultValue2={elem.description}
-                action={handleEditAnno}
-              />
-            ) : (
-              <></>
-            )}
-          </div>
+          <Item
+            key={index}
+            title={elem.title}
+            description={elem.description}
+            date={elem.date}
+            id={elem.id}
+            handleDeleteAnno={handleDeleteAnno}
+            handleEditAnno={handleEditAnno}
+            similarAnno={similarAnnouncements[elem.id]}
+          />
         );
       })}
+      {/* {} */}
     </div>
   );
-}
+};

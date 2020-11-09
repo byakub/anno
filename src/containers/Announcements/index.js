@@ -4,17 +4,19 @@ import { bindActionCreators } from 'redux';
 import {
   actions as announcementsActions,
   selectors as announcementsSelectors,
-} from './../../store/domains/Announcements';
+} from './../../store/Announcements';
 
-import view from './view';
+import { Announcements } from './view';
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    announcements: announcementsSelectors.selectAnnouncements(state),
+    list: announcementsSelectors.getSearchAnnouncements(state),
+    similarAnnouncements: announcementsSelectors.getSimilarAnnouncements(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ ...announcementsActions }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(view);
+export default connect(mapStateToProps, mapDispatchToProps)(Announcements);

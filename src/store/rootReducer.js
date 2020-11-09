@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import announcementsReducer from './domains/Announcements/reducer';
+import announcementsReducer from './Announcements/reducer';
 
 const rootReducer = combineReducers({
   announcements: announcementsReducer,

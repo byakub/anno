@@ -9,7 +9,11 @@ import rootReducer from './rootReducer';
 import { loadState, saveState } from '../services';
 
 const persistedState = loadState();
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(
+  rootReducer,
+  persistedState,
+  applyMiddleware(thunk, logger)
+);
 
 store.subscribe(
   throttle(() => {

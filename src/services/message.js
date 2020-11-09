@@ -1,18 +1,7 @@
-import React from 'react';
-import { message, Space } from 'antd';
+import { message } from 'antd';
 
-const success = (text) => {
-  message.success(text);
+const getMessage = () => ({ text, type }) => {
+  message[type](text, 2);
 };
 
-const error = (text) => {
-  message.error(text);
-};
-
-export default (props) => {
-  const { type, text } = props;
-
-  {
-    type === 'success' ? success(text) : type === 'error' ? error(text) : null;
-  }
-};
+export const showMessage = getMessage();
