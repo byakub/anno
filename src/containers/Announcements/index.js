@@ -9,10 +9,12 @@ import {
 import { Announcements } from './view';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     list: announcementsSelectors.getSearchAnnouncements(state),
     similarAnnouncements: announcementsSelectors.getSimilarAnnouncements(state),
+    currentAnnouncementItem: announcementsSelectors.getCurrentAnnouncement(
+      state
+    ),
   };
 };
 

@@ -1,0 +1,32 @@
+.ant-drawer-header{
+    background-color: #fbec5d;
+    height: 5rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.similar-announcement{
+    margin-bottom: 10px;
+    background-color: #1890ff;
+    border-radius: 10px;
+}
+
+.similar-title{
+    border-bottom: 1px solid #fbec5d;
+    color: #fbec5d;
+    padding: 1rem;
+    font-size: auto 1rem;
+}
+
+.similar-description{
+    color: #fbec5d;
+    padding: 1rem;
+    font-size: 0.7rem;
+}

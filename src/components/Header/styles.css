@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap');
+
+
+.header-title{
+  height: 100%;
+  padding-bottom: 4rem;
+}
+
+.header-title h1::first-letter{
+  font-size: 2rem;
+}
+.header-title h1{
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    background-color: #fffffe;
+    border-bottom: 3px solid #fbec5d;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: bold;
+    color: #1890ff;
+    font-size: 2rem;
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+}
+
+
+
+.header-main h2,.header-main p{
+    text-align: center;
+    margin: 0;
+}
+
+.header-main h2{
+  padding-top: 2rem;
+  font-size: 3.5rem;
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.header-main p{
+  padding-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #1890ff;
+}
+
+.header-main{
+  height: 100%;
+  background: rgba(255,231,15,1);
+  background: -moz-linear-gradient(left, rgba(255,231,15,1) 0%, rgba(255,231,15,0.98) 22%, rgba(255,231,15,0.96) 43%, rgba(36,167,204,0.94) 72%, rgba(0,113,219,0.94) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,231,15,1)), color-stop(22%, rgba(255,231,15,0.98)), color-stop(43%, rgba(255,231,15,0.96)), color-stop(72%, rgba(36,167,204,0.94)), color-stop(100%, rgba(0,113,219,0.94)));
+  background: -webkit-linear-gradient(left, rgba(255,231,15,1) 0%, rgba(255,231,15,0.98) 22%, rgba(255,231,15,0.96) 43%, rgba(36,167,204,0.94) 72%, rgba(0,113,219,0.94) 100%);
+  background: -o-linear-gradient(left, rgba(255,231,15,1) 0%, rgba(255,231,15,0.98) 22%, rgba(255,231,15,0.96) 43%, rgba(36,167,204,0.94) 72%, rgba(0,113,219,0.94) 100%);
+  background: -ms-linear-gradient(left, rgba(255,231,15,1) 0%, rgba(255,231,15,0.98) 22%, rgba(255,231,15,0.96) 43%, rgba(36,167,204,0.94) 72%, rgba(0,113,219,0.94) 100%);
+  background: linear-gradient(to right, rgba(255,231,15,1) 0%, rgba(255,231,15,0.98) 22%, rgba(255,231,15,0.96) 43%, rgba(36,167,204,0.94) 72%, rgba(0,113,219,0.94) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe70f', endColorstr='#0071db', GradientType=1 );
+}

@@ -15,7 +15,6 @@ const getDeleteConfirm = () => ({ action, type }) => {
       action();
       showMessage({ type: 'success', text: 'Deleted' });
     },
-    onCancel() {},
   });
 };
 

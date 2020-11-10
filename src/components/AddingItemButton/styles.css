@@ -1,0 +1,15 @@
+.ant-btn.ant-btn-primary.ant-btn-lg.button{
+    display: block; 
+    margin: 1.5rem 3rem 1.5rem;
+    height: auto;
+    color:#fbec5d;
+}
+
+.ant-btn-icon-only{
+    color: #1890ff;
+}
+
+.ant-btn-icon-only:hover{
+    background-color: #1890ff;
+    color: #fbec5d;
+}

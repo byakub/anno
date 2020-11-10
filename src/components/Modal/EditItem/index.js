@@ -3,20 +3,17 @@ import { Modal } from 'antd';
 import Form from '../../Form';
 import { showMessage } from '../../../services/message';
 
-export const AnnouncementItemEdit = (props) => {
-  const {
-    id,
-    currentValueTitle,
-    currentValueDescr,
-    action,
-    closeEditModal,
-  } = props;
+import './styles.css';
+
+export const EditItem = (props) => {
+  const { announcement, action, closeEditModal } = props;
 
   const formikRef = useRef();
 
   const [visible, setVisible] = useState(true);
   const [okButtonDisabled, setOkButtonDisabled] = useState(false);
 
+  console.log('iam here!');
   const permitOkButton = ({ title, description }) => {
     let permit = false;
     if (title.trim('') !== '' && description.trim('') !== '') {
@@ -46,11 +43,9 @@ export const AnnouncementItemEdit = (props) => {
       >
         <Form
           ref={formikRef}
-          id={id}
-          currentValueTitle={currentValueTitle}
-          currentValueDescr={currentValueDescr}
+          announcement={announcement}
           action={action}
-          buttonpermit={permitOkButton}
+          buttonPermit={permitOkButton}
         />
       </Modal>
     </>

@@ -3,35 +3,39 @@ import shortid from 'shortid';
 import moment from 'moment';
 import { selectAnnouncements } from './selectors';
 
-export const addAnno = (announcement) => ({
-  type: actionTypes.ADD_ANNO,
+export const addAnnouncement = (announcement) => ({
+  type: actionTypes.ADD_ANNOUNCEMENT,
   payload: announcement,
 });
 
-export const deleteAnno = (announcement) => ({
-  type: actionTypes.DELETE_ANNO,
+export const deleteAnnouncement = (announcement) => ({
+  type: actionTypes.DELETE_ANNOUNCEMENT,
   payload: announcement,
 });
-export const editAnno = (announcement) => ({
-  type: actionTypes.EDIT_ANNO,
+export const editAnnouncement = (announcement) => ({
+  type: actionTypes.EDIT_ANNOUNCEMENT,
   payload: announcement,
 });
-export const searchAnno = (title) => ({
-  type: actionTypes.SEARCH_ANNO,
+export const searchAnnouncement = (title) => ({
+  type: actionTypes.SEARCH_ANNOUNCEMENT,
   payload: title,
 });
+export const currentAnnouncementId = (id) => ({
+  type: actionTypes.CURRENT_ANNOUNCEMENT_ID,
+  payload: id,
+});
 
-export const handleAddAnno = ({ title, description }) => (dispatch) => {
+export const handleAddAnnouncement = ({ title, description }) => (dispatch) => {
   const newAnno = {
     id: shortid.generate(),
     title: title,
     description: description,
     date: moment().format('LLL'),
   };
-  dispatch(addAnno(newAnno));
+  dispatch(addAnnouncement(newAnno));
 };
 
-export const handleEditAnno = ({ title, description, id }) => (
+export const handleEditAnnouncement = ({ title, description, id }) => (
   dispatch,
   getState
 ) => {
@@ -44,12 +48,12 @@ export const handleEditAnno = ({ title, description, id }) => (
     }
     return elem;
   });
-  dispatch(editAnno(result));
+  dispatch(editAnnouncement(result));
 };
 
-export const handleDeleteAnno = (id) => (dispatch, getState) => {
+export const handleDeleteAnnouncement = (id) => (dispatch, getState) => {
   const state = selectAnnouncements(getState());
 
   const result = state.filter((elem) => elem.id !== id);
-  dispatch(deleteAnno(result));
+  dispatch(deleteAnnouncement(result));
 };

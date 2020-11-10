@@ -1,0 +1,13 @@
+.footer{
+    border-top: 3px solid #fbec5d;
+    background-color: #fffffe;
+    height: 3rem;
+    display: flex;
+}
+
+.footer .footer-title{
+    margin: auto;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1rem;
+    color: #1890ff;
+}

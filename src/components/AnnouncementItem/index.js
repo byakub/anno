@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button, Card, Tooltip } from 'antd';
 import {
@@ -7,84 +7,48 @@ import {
   InfoCircleOutlined,
 } from '@ant-design/icons';
 
-import { AnnouncementItemEdit } from '../Modal/AnnouncementItemEdit';
-import { AnnouncementItemInfo } from '../Modal/AnnouncementItemInfo';
-import { showDeleteConfirm } from '../../services/deleteConfirmation';
-
 import './styles.css';
 
-export const Item = (props) => {
+export const AnnouncementItem = (props) => {
   const {
-    title,
-    description,
-    date,
-    id,
-    handleDeleteAnno,
-    handleEditAnno,
-    similarAnno,
+    announcement,
+    handleDeleteAnnouncement,
+    handleEditAnnouncement,
+    handleInfoAnnouncement,
   } = props;
 
-  const [openEditModal, setOpenEditModal] = useState(false);
-  const [openInfoModal, setOpenInfoModal] = useState(false);
-  const handleEditModal = () => {
-    setOpenEditModal(!openEditModal);
-  };
-  const toggleInfoModal = () => {
-    setOpenInfoModal(!openInfoModal);
-  };
   return (
     <div>
       <Card
-        title={title}
+        title={announcement.title}
         extra={
           <div>
-            <Tooltip title="Detail">
+            <Tooltip title="Detail" color="#1890ff">
               <Button
                 shape="circle"
-                onClick={toggleInfoModal}
+                onClick={() => handleInfoAnnouncement(announcement.id)}
                 icon={<InfoCircleOutlined />}
               />
             </Tooltip>
-            <Tooltip title="Edit">
+            <Tooltip title="Edit" color="#1890ff">
               <Button
                 shape="circle"
-                onClick={handleEditModal}
+                onClick={() => handleEditAnnouncement(announcement.id)}
                 icon={<EditOutlined />}
               />
             </Tooltip>
-            <Tooltip title="Delete">
+            <Tooltip title="Delete" color="#1890ff">
               <Button
                 shape="circle"
-                onClick={() =>
-                  showDeleteConfirm({ action: () => handleDeleteAnno(id) })
-                }
+                onClick={() => handleDeleteAnnouncement(announcement.id)}
                 icon={<DeleteOutlined />}
               />
             </Tooltip>
           </div>
         }
       >
-        <p className="card-description">{description}</p>
+        <p className="card-description">{announcement.description}</p>
       </Card>
-
-      {openEditModal && (
-        <AnnouncementItemEdit
-          id={id}
-          currentValueTitle={title}
-          currentValueDescr={description}
-          action={handleEditAnno}
-          closeEditModal={handleEditModal}
-        />
-      )}
-      {openInfoModal && (
-        <AnnouncementItemInfo
-          title={title}
-          description={description}
-          date={date}
-          closeInfo={toggleInfoModal}
-          similarAnnouncement={similarAnno}
-        />
-      )}
     </div>
   );
 };

@@ -7,28 +7,22 @@ import './styles.css';
 const { TextArea } = Input;
 
 export default forwardRef((props, ref) => {
-  const {
-    action,
-    currentValueTitle = '',
-    currentValueDescr = '',
-    buttonpermit,
-    id,
-  } = props;
+  const { action, announcement, buttonPermit } = props;
 
   useImperativeHandle(ref, () => ({
     formikHandleSubmit,
   }));
   const formik = useFormik({
     initialValues: {
-      title: currentValueTitle || '',
-      description: currentValueDescr || '',
-      id: id || null,
+      title: announcement.title,
+      description: announcement.description,
+      id: announcement.id || null,
     },
   });
 
   const { values, handleChange, handleBlur } = formik;
 
-  buttonpermit(values);
+  buttonPermit(values);
 
   const formikHandleSubmit = () => {
     action(values);

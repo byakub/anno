@@ -1,0 +1,8 @@
+.announcement-list{
+    min-height: 31rem;
+}
+
+.empty-list{
+    margin: 1.5rem 3rem;
+    font-size: 2rem;
+}

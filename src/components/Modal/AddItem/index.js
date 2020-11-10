@@ -3,7 +3,9 @@ import { Modal } from 'antd';
 import Form from '../../Form';
 import { showMessage } from '../../../services/message';
 
-export const AnnouncementItemAdd = (props) => {
+import './styles.css';
+
+export const AddItem = (props) => {
   const { action, closeAddModal } = props;
 
   const formikRef = useRef();
@@ -38,7 +40,12 @@ export const AnnouncementItemAdd = (props) => {
         }}
         width={600}
       >
-        <Form ref={formikRef} action={action} buttonpermit={permitOkButton} />
+        <Form
+          ref={formikRef}
+          action={action}
+          announcement={{ title: '', description: '' }}
+          buttonPermit={permitOkButton}
+        />
       </Modal>
     </>
   );
