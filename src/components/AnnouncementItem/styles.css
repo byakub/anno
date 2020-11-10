@@ -20,6 +20,8 @@
   font-size: 1.6rem;
   font-weight: bold;
   color:#1890ff;
+  white-space: unset;  
+
 }
   .ant-card-head-title::first-letter{
     font-size: 2em;
@@ -28,7 +30,8 @@
       text-align: justify;
       font-size: 1rem;
       color:#1890ff; 
-  }
+      white-space: unset;  
+    }
 
   .card-date{
       text-align: end;
@@ -55,10 +58,8 @@
 @media (max-width: 425px) {
   .ant-card-head-title{
     font-size: 1.2rem;
-    white-space: wrap;
   }
   .card-description{
     font-size: 0.6rem;
-    white-space: wrap;
 }
 }
