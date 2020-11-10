@@ -15,20 +15,19 @@
   }
 
 
-  .ant-card-head-title{
-      text-align: start;
-      font-size: x-large;
-      font-weight: bold;
-      color:#1890ff;
-  }
+.ant-card-head-title{
+  text-align: start;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color:#1890ff;
+}
   .ant-card-head-title::first-letter{
     font-size: 2em;
 }
   .card-description{
       text-align: justify;
-      font-size: 0.8rem;
-      color:#1890ff;
-      
+      font-size: 1rem;
+      color:#1890ff; 
   }
 
   .card-date{
@@ -39,4 +38,27 @@
 
 .ant-tooltip-open{
   background-color: #1890ff;
+}
+
+
+@media (max-width: 786px) {
+  .ant-card-head-title{
+    font-size: 1.4rem;
+    white-space: wrap;
+  }
+  .card-description{
+    font-size: 0.8rem;
+    white-space: wrap;
+}
+}
+
+@media (max-width: 425px) {
+  .ant-card-head-title{
+    font-size: 1.2rem;
+    white-space: wrap;
+  }
+  .card-description{
+    font-size: 0.6rem;
+    white-space: wrap;
+}
 }

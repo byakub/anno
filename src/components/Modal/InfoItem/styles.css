@@ -22,11 +22,45 @@ h3{
     border-bottom: 1px solid #fbec5d;
     color: #fbec5d;
     padding: 1rem;
-    font-size: auto 1rem;
+    font-size: 1rem;
 }
 
 .similar-description{
-    color: #fbec5d;
-    padding: 1rem;
-    font-size: 0.7rem;
+  color: #fbec5d;
+  padding: 1rem;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 786px) {
+  h2{
+    font-size: 1.5rem;
+  }
+
+  h3{
+    font-size: 0.9rem;
+  }
+  .similar-title{
+    font-size: 1rem;
+    white-space: pre-wrap;
+  }
+  .similar-description{
+    font-size: 0.6rem;
+    white-space: pre-wrap;
+  }
+}
+    
+@media (max-width: 425px) {
+  h2{
+    font-size: 1.3rem;
+  }
+
+  h3{
+    font-size: 0.8rem;
+  }
+  .similar-title{
+    font-size: 0.8rem;
+  }
+  .similar-description{
+    font-size: 0.5rem;
+  }
 }

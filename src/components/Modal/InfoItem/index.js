@@ -21,13 +21,13 @@ export const InfoItem = (props) => {
         visible={visible}
         key="right"
       >
-        <div>
+        <>
           <h2>{announcement.title}</h2>
           <h3>Description:</h3>
           <p>{announcement.description}</p>
           <h3>Date added:</h3>
           <p>{announcement.date}</p>
-        </div>
+        </>
         <Divider />
         <h3>Similar announcements:</h3>
         {similarAnnouncement.slice(0, 3).map((elem) => {

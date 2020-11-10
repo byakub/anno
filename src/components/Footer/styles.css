@@ -1,13 +1,25 @@
 .footer{
-    border-top: 3px solid #fbec5d;
-    background-color: #fffffe;
-    height: 3rem;
-    display: flex;
+  border-top: 3px solid #fbec5d;
+  background-color: #fffffe;
+  height: 3rem;
+  display: flex;
 }
 
 .footer .footer-title{
-    margin: auto;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1rem;
-    color: #1890ff;
+  margin: auto;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 1rem;
+  color: #1890ff;
+}
+
+@media (max-width: 786px) {
+  .footer .footer-title{
+    font-size: 0.8rem;
+  }
+}
+  
+@media (max-width: 425px) {
+  .footer .footer-title{
+    font-size: 0.6rem;
+  }
 }

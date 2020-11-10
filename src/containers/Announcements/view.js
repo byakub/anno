@@ -84,12 +84,12 @@ export const Announcements = (props) => {
         />
       )}
       {openAddModal && (
-        <div>
+        <>
           <AddItem
             action={handleAddAnnouncement}
             closeAddModal={toggleAddModal}
           />
-        </div>
+        </>
       )}
     </div>
   );

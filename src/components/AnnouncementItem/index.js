@@ -18,11 +18,11 @@ export const AnnouncementItem = (props) => {
   } = props;
 
   return (
-    <div>
+    <>
       <Card
         title={announcement.title}
         extra={
-          <div>
+          <>
             <Tooltip title="Detail" color="#1890ff">
               <Button
                 shape="circle"
@@ -44,11 +44,11 @@ export const AnnouncementItem = (props) => {
                 icon={<DeleteOutlined />}
               />
             </Tooltip>
-          </div>
+          </>
         }
       >
         <p className="card-description">{announcement.description}</p>
       </Card>
-    </div>
+    </>
   );
 };
