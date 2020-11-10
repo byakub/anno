@@ -75,7 +75,7 @@ const announcementsReducer = (state = initialState, action = {}) => {
     case actionTypes.ADD_ANNOUNCEMENT: {
       return {
         ...state,
-        list: [...state.list, action.payload],
+        list: [action.payload, ...state.list],
       };
     }
     case actionTypes.DELETE_ANNOUNCEMENT: {
